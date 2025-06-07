@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>SVA - Nexus de Commande</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 2em; }
+        .container { max-width: 900px; margin: auto; background-color: #1e1e1e; padding: 2em; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        h1, h2 { color: #bb86fc; border-bottom: 2px solid #bb86fc; padding-bottom: 10px; }
+        .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; }
+        .status-item { background-color: #2c2c2c; padding: 15px; border-radius: 4px; }
+        .status-item strong { color: #03dac6; display: block; margin-bottom: 5px; }
+        .status-online { color: #4caf50; }
+        .status-offline { color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Système de Vie Augmentée (SVA) - Nexus</h1>
+        
+        <h2>État du Système</h2>
+        <div class="status-grid">
+            <div class="status-item">
+                <strong>Nom du Projet:</strong>
+                <span>Système de Vie Augmentée (SVA)</span>
+            </div>
+            <div class="status-item">
+                <strong>ID du Projet Firebase:</strong>
+                <span>systeme-vie-augmenter-459400</span>
+            </div>
+            <div class="status-item">
+                <strong>Région de Déploiement:</strong>
+                <span>northamerica-northeast1 (Canada)</span>
+            </div>
+            <div class="status-item">
+                <strong>Statut du Moteur Principal:</strong>
+                <span id="engine-status" class="status-offline">Vérification...</span>
+            </div>
+        </div>
+
+        <h2>Modules Actifs</h2>
+        <div id="modules-list">
+            <p>Aucun module chargé.</p>
+        </div>
+    </div>
+
+    <!-- SDK Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script>
+        // Ce script est volontairement simple et ne contient pas les erreurs précédentes.
+        const firebaseConfig = {
+            apiKey: "AIzaSyA... (remplacé au déploiement)", // La clé sera là, mais nous ne l'utilisons pas encore
+            authDomain: "systeme-vie-augmenter-459400.firebaseapp.com",
+            projectId: "systeme-vie-augmenter-459400",
+            storageBucket: "systeme-vie-augmenter-459400.appspot.com",
+            messagingSenderId: "240102848779",
+            appId: "1:240102848779:web:d8e5... (remplacé)"
+        };
+
+        // Nous n'initialisons rien pour le moment pour garantir ZÉRO erreur.
+        // La page est statique et informative.
+        document.getElementById('engine-status').textContent = 'Non connecté';
+        document.getElementById('engine-status').className = 'status-offline';
+    </script>
+</body>
+</html>
