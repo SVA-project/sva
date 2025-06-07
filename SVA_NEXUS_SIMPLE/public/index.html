@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SVA - Atelier de Création</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap');
+        :root { --bg-color: #0a0a0f; --surface-color: #12121c; --primary-glow: #9e42f5; --secondary-glow: #00d4ff; --text-color: #f5f5f5; }
+        body { font-family: 'Rajdhani', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 2vw; }
+        .workshop-grid { display: none; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 2vw; max-width: 1800px; margin: auto; }
+        .login-container { text-align: center; padding-top: 20vh; }
+        .panel { display: none; background-color: var(--surface-color); padding: 25px; border-radius: 10px; border: 1px solid #222; }
+        h1, h2 { font-weight: 500; color: var(--primary-glow); border-bottom: 1px solid var(--primary-glow); padding-bottom: 10px; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: var(--secondary-glow); }
+        .input-field, .select-field, .textarea-field { width: calc(100% - 24px); padding: 12px; margin-bottom: 15px; background-color: rgba(10,10,15,.8); border: 1px solid var(--secondary-glow); border-radius: 5px; color: var(--text-color); font-size: 1.1em; }
+        .action-button { background: none; border: 1px solid var(--primary-glow); color: var(--primary-glow); padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 1em; font-weight: 700; transition: all 0.3s; }
+        .action-button:hover { background-color: var(--primary-glow); color: var(--surface-color); }
+        #notification { position: fixed; top: 20px; right: 20px; background-color: var(--secondary-glow); color: #000; padding: 15px; border-radius: 5px; display: none; z-index: 1000; }
+    </style>
+</head>
+<body>
+    <div id="notification"></div>
+    <div id="loginContainer" class="login-container"><h1>Accès à l'Atelier de Création SVA</h1><button id="loginBtn" class="action-button">Se Connecter avec Google</button></div>
+    <div id="workshopContainer" class="workshop-grid">
+        <div id="agentPanel" class="panel">
+            <h2>Module de Création d'Agents</h2>
+            <form id="createAgentForm">
+                <label>Nom de l'Agent</label><input type="text" class="input-field" placeholder="Ex: Historien-Pompéi-01">
+                <label>Cerveau de Base</label><select class="select-field"><option>Gemini 2.5 Pro</option><option>Imagen 3</option></select>
+                <label>Briefing de Mission (MCP)</label><textarea class="textarea-field" rows="3"></textarea>
+                <button type="submit" class="action-button">Déployer Agent</button>
+            </form>
+        </div>
+        <div id="packPanel" class="panel">
+            <h2>Module de Création de Packs</h2>
+            <form id="createPackForm">
+                <label>Nom du Pack</label><input type="text" class="input-field" placeholder="Ex: Pack Expérientiel: Pompéi">
+                <label>Type de Pack</label><select class="select-field"><option>Expérience Immersive</option><option>Thème Décoratif</option></select>
+                <label>Prompt Initial</label><textarea class="textarea-field" rows="3"></textarea>
+                <button type="submit" class="action-button">Lancer la Création du Pack</button>
+            </form>
+        </div>
+        <div id="adPanel" class="panel">
+            <h2>Module Publicitaire AR</h2>
+            <form id="createAdForm">
+                <label>Nom de la Campagne</label><input type="text" class="input-field" placeholder="Ex: Promo Boulangerie Le Bon Pain">
+                <label>Adresse du Commerce (pour géolocalisation)</label><input type="text" class="input-field" placeholder="Ex: 123 Rue Principale, Montréal">
+                <label>Texte Publicitaire</label><textarea class="textarea-field" rows="3"></textarea>
+                <button type="submit" class="action-button">Lancer la Campagne</button>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+        const firebaseConfig = {
+            apiKey: "AIzaSyDek6Sy8pVbQxZYpD9LXcmWv65R0pX6zSU", authDomain: "systeme-vie-augmenter-459400.firebaseapp.com",
+            projectId: "systeme-vie-augmenter-459400", storageBucket: "systeme-vie-augmenter-459400.appspot.com",
+            messagingSenderId: "240102848779", appId: "1:240102848779:web:66dcc275a762c3fbeb0a0e"
+        };
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-functions.js";
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const functions = getFunctions(app, 'northamerica-northeast1');
+        const provider = new GoogleAuthProvider();
+
+        const loginContainer = document.getElementById('loginContainer');
+        const workshopContainer = document.getElementById('workshopContainer');
+        const panels = document.querySelectorAll('.panel');
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                loginContainer.style.display = 'none';
+                workshopContainer.style.display = 'grid';
+                panels.forEach(p => p.style.display = 'block');
+            } else {
+                loginContainer.style.display = 'block';
+                workshopContainer.style.display = 'none';
+            }
+        });
+
+        loginBtn.addEventListener('click', () => signInWithPopup(auth, provider));
+
+        function showNotification(message) {
+            const notif = document.getElementById('notification');
+            notif.textContent = message;
+            notif.style.display = 'block';
+            setTimeout(() => { notif.style.display = 'none'; }, 3000);
+        }
+
+        document.getElementById('createAgentForm').addEventListener('submit', async (e) => { 
+            e.preventDefault(); 
+            const createAgent = httpsCallable(functions, 'createAgent');
+            try {
+                const result = await createAgent({});
+                showNotification(result.data.message);
+            } catch (error) {
+                showNotification("Erreur: " + error.message);
+            }
+        });
+        document.getElementById('createPackForm').addEventListener('submit', async (e) => { 
+            e.preventDefault(); 
+            const createPack = httpsCallable(functions, 'createPack');
+            try {
+                const result = await createPack({});
+                showNotification(result.data.message);
+            } catch (error) {
+                showNotification("Erreur: " + error.message);
+            }
+        });
+        document.getElementById('createAdForm').addEventListener('submit', async (e) => { 
+            e.preventDefault(); 
+            const createAd = httpsCallable(functions, 'createAd');
+            try {
+                const result = await createAd({});
+                showNotification(result.data.message);
+            } catch (error) {
+                showNotification("Erreur: " + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
