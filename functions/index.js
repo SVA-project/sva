@@ -30,7 +30,7 @@ exports.initiateSvaProject = onRequest({cors: true, region: SVA_REGION}, async (
         const content = resp.response.candidates[0].content.parts[0].text;
         const cleanedJsonString = content.replace(/```json/g, '').replace(/```/g, '').trim();
         const planObject = JSON.parse(cleanedJsonString);
-        const projetRef = await db.collection('projects').add({
+        const projetRef = await db.collection('bibliotheque-sva-finales').add({
             nom: prompt,
             planAction: planObject.plan,
             dateCreation: new Date().toISOString(),
