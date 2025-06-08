@@ -34,7 +34,7 @@
             </div>
             <div class="status-item">
                 <strong>Statut du Moteur Principal:</strong>
-                <span id="engine-status" class="status-offline">Vérification...</span>
+                <span id="engine-status" class="status-offline">Non connecté</span>
             </div>
         </div>
 
@@ -50,8 +50,9 @@
 
     <script>
         // Ce script est volontairement simple et ne contient pas les erreurs précédentes.
+        // La configuration Firebase est présente mais non utilisée pour garantir ZÉRO erreur au chargement.
         const firebaseConfig = {
-            apiKey: "AIzaSyA... (remplacé au déploiement)", // La clé sera là, mais nous ne l'utilisons pas encore
+            apiKey: "AIzaSyA... (remplacé au déploiement)",
             authDomain: "systeme-vie-augmenter-459400.firebaseapp.com",
             projectId: "systeme-vie-augmenter-459400",
             storageBucket: "systeme-vie-augmenter-459400.appspot.com",
@@ -59,10 +60,7 @@
             appId: "1:240102848779:web:d8e5... (remplacé)"
         };
 
-        // Nous n'initialisons rien pour le moment pour garantir ZÉRO erreur.
-        // La page est statique et informative.
-        document.getElementById('engine-status').textContent = 'Non connecté';
-        document.getElementById('engine-status').className = 'status-offline';
+        // Aucune initialisation Firebase pour le moment. La page est 100% statique et informative.
     </script>
 </body>
 </html>
