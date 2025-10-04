@@ -2,37 +2,36 @@
   "name": "sva-studio-numerique",
   "version": "1.0.0",
   "private": true,
-  "description": "STATUS PRIVE: Studio Numérique avec contrôle de latence Kyber",
+  "description": "🔒 PRIVÉ - Studio Numérique SVA™ - Système Vie Augmentée",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "kYber:latency": "node scripts/kyber-latency.js"
+    "kyber": "node scripts/kyber-latency.js"
   },
   "dependencies": {
-    "next": "14.2.14",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "firebase": "10.15.0",
-    "@firebase/database": "1.0.6",
-    "framer-motion": "11.11.17",
-    "react-query": "5.67.0",
-    "@headlessui/tailwindcss": "2.2.7",
-    "use-debounce": "10.0.3",
-    "ws": "8.18.0",
-    "perf-hooks": "5.7.1"
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "firebase": "^10.0.0",
+    "ws": "^8.14.0",
+    "perf-hooks": "^0.0.1"
   },
   "devDependencies": {
-    "tailwindcss": "3.4.33",
-    "postcss": "8.4.47",
-    "autoprefixer": "10.4.20",
-    "@types/node": "22.7.6",
-    "@types/react": "18.3.12",
-    "@types/react-dom": "18.3.0",
-    "typescript": "5.6.3",
-    "eslint": "8.57.1",
-    "eslint-config-next": "14.2.14"
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
   },
-  "kiwords": ["private", "sva", "studio", "kyber", "latency"]
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SVA-project/sva.git"
+  },
+  "author": "Système Vie Augmentée™",
+  "license": "PRIVATE"
 }
