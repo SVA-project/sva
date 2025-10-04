@@ -1,52 +1,38 @@
 {
-  "name": "studio-numerique-sva",
+  "name": "sva-studio-numerique",
   "version": "1.0.0",
-  "description": "Studio Numérique Collaboratif 2025 - Écosystème créatif immersif avec MCP, XR et Blockchain",
+  "private": true,
+  "description": "STATUS PRIVE: Studio Numérique avec contrôle de latence Kyber",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "kYber:latency": "node scripts/kyber-latency.js"
   },
   "dependencies": {
-    "next": "14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "firebase": "^10.10.0",
-    "tailwindcss": "^3.4.0",
-    "framer-motion": "^10.16.10",
-    "three": "^0.158.0",
-    "@three/fiber": "^8.15.12",
-    "@three/drei": "^15.4.0",
-    "lucide-react": "^0.290.0",
-    "class-variance-authority": "^0.7.0",
-    "class-transformer": "^1.0.0",
-    "clsx": "^2.0.0",
-    "recharts": "^2.8.0",
-    "zod": "^3.22.4",
-    "react-hook-form": "^7.48.2",
-    "@hookform/resolvers": "^3.3.2",
-    "@firebase/app": "^0.9.27",
-    "@firebase/firestore": "^0.9.27",
-    "@firebase/auth": "^0.9.27",
-    "@firebase/functions": "^0.9.27",
-    "axios": "^1.6.0",
-    "date-fns": "^2.29.3",
-    "react-query": "^3.39.3",
-    "web3": "^1.10.3",
-    "ethers": "^6.8.0"
+    "next": "14.2.14",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "firebase": "10.15.0",
+    "@firebase/database": "1.0.6",
+    "framer-motion": "11.11.17",
+    "react-query": "5.67.0",
+    "@headlessui/tailwindcss": "2.2.7",
+    "use-debounce": "10.0.3",
+    "ws": "8.18.0",
+    "perf-hooks": "5.7.1"
   },
   "devDependencies": {
-    "@types/node": "^20.9.0",
-    "@types/react": "^18.2.38",
-    "@types/react-dom": "^18.2.17",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.54.0",
-    "eslint-config-next": "14.0.0",
-    "postcss": "^8.4.31",
-    "typescript": "^5.3.2"
+    "tailwindcss": "3.4.33",
+    "postcss": "8.4.47",
+    "autoprefixer": "10.4.20",
+    "@types/node": "22.7.6",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.0",
+    "typescript": "5.6.3",
+    "eslint": "8.57.1",
+    "eslint-config-next": "14.2.14"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "kiwords": ["private", "sva", "studio", "kyber", "latency"]
 }
