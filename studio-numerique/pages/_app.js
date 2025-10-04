@@ -1,5 +1,5 @@
-// 🔒 PRIVى STATUS: APPLICATION PRINCIPALE SVA STUDIO
-// Auteur: Système Vie Augment���Ⅱ 2025
+// 🔒 PRIVÉ STATUS: APPLICATION PRINCIPALE SVA STUDIO
+// Auteur: Système Vie Augmentée™ 2025
 // STATUS: PRIVÉ - NON PUBLIC
 
 import { useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
-// ⚠⚠⚠ KYBER CONTROL INITIALIZATION
+// ⚠️⚠️⚠️ KYBER CONTROL INITIALIZATION
 const KyberControl = typeof window !== 'undefined' ? require('../scripts/kyber-latency') : null;
 
 // Firebase Config (PRIVÉ)
@@ -32,14 +32,14 @@ function MyApp({ Component, pageProps }) {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    // ≡ Vérification admin PRIVى
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL?;
+    // ✅ Vérification admin PRIVÉ
+    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
     if (adminEmail) {
       // Logique auth et contrôle admin
       setIsAdmin(true);
     }
 
-    // ◇ Initialisation Kyber
+    // ⚡ Initialisation Kyber
     if (KyberControl && KyberControl.enabled) {
       setInterval(() => {
         const metrics = KyberControl.getMetrics();
@@ -51,12 +51,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>🔒 SVA Studio Numérique - PRIVى</title>
+        <title>🔒 SVA Studio Numérique - PRIVÉ</title>
         <meta name="description" content="STUDIO PRIVÉ - Système Vie Augmentée" />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      {/* ♡♡♡ AFFICHAGE PRIVÉ ♡♡♡ */}
+      {/* ⚠️⚠️⚠️ AFFICHAGE PRIVÉ ⚠️⚠️⚠️ */}
       <div style={{
         position: 'fixed',
         top: 0,
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
         zIndex: -1
       }} />
 
-      {/* ❠❠♠ STATUS BASE PRIVÉ ❠❠♡ */}
+      {/* ⚠️⚠️⚠️ STATUS BASE PRIVÉ ⚠️⚠️⚠️ */}
       <div style={{
         position: 'fixed',
         top: 10,
@@ -82,7 +82,7 @@ function MyApp({ Component, pageProps }) {
       }}>
         🔒 STATUS PRIVÉ<br />
         {isAdmin ? 'ADMIN ON' : 'USER'}<br />
-        Kyber: {latencyStatus ? `➠⊢❠ ACTIF - ${latencyStatus.averageLatency}ms` : 'OFF'}
+        Kyber: {latencyStatus ? `⚡⚡⚡ ACTIF - ${latencyStatus.averageLatency}ms` : 'OFF'}
       </div>
 
       <Component {...pageProps} db={db} auth={auth} isAdmin={isAdmin} />
