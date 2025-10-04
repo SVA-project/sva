@@ -1,0 +1,52 @@
+{
+  "name": "studio-numerique-sva",
+  "version": "1.0.0",
+  "description": "Studio Numérique Collaboratif 2025 - Écosystème créatif immersif avec MCP, XR et Blockchain",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "firebase": "^10.10.0",
+    "tailwindcss": "^3.4.0",
+    "framer-motion": "^10.16.10",
+    "three": "^0.158.0",
+    "@three/fiber": "^8.15.12",
+    "@three/drei": "^15.4.0",
+    "lucide-react": "^0.290.0",
+    "class-variance-authority": "^0.7.0",
+    "class-transformer": "^1.0.0",
+    "clsx": "^2.0.0",
+    "recharts": "^2.8.0",
+    "zod": "^3.22.4",
+    "react-hook-form": "^7.48.2",
+    "@hookform/resolvers": "^3.3.2",
+    "@firebase/app": "^0.9.27",
+    "@firebase/firestore": "^0.9.27",
+    "@firebase/auth": "^0.9.27",
+    "@firebase/functions": "^0.9.27",
+    "axios": "^1.6.0",
+    "date-fns": "^2.29.3",
+    "react-query": "^3.39.3",
+    "web3": "^1.10.3",
+    "ethers": "^6.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "14.0.0",
+    "postcss": "^8.4.31",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
