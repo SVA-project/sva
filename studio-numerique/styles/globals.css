@@ -1,0 +1,212 @@
+/* 🔒 PRIVÉ STATUS: STYLES GLOBAUX SVA STUDIO NUMÉRIQUE */
+/* Système Vie Augmentée 2025 */
+/* STATUS: PRIVÉ - NON PUBLIC */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    sans-serif;
+  color: #ffffff;
+  background: #000000;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #00ff41;
+  transition: all 0.3s;
+}
+
+/* ⚡ AFFICHAGE PRIVÉ STATUS ⚡ */
+.hidden {
+  display: none !important;
+}
+
+/* COMPOSANTS PRINCIPAUX */
+.container {
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: #00ff41;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: #00cc33;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ⚡ HOVER EFFECTS & ANIMATIONS ⚡ */
+.hover-effect {
+ �transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
+}
+
+/* ⚡ ⚡⚡⚡ KYBER STATUS INDICATORS ⚡⚡⚡⚡ */
+.kyber-status {
+  font-family: 'Inter', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #00ff41;
+  border: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.kyber-active {
+  animation: kyberPulse 2s.)nfinite;
+}
+
+@keyframes kyberPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+  }
+}
+
+/* STATISTIQUES & MÇTRIQUES ⚡ */
+.stat-card h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00ff41;
+  margin: 0;
+}
+
+/* MENUS NAVIGATION ⚡ */
+.menu-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.-menu-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* MEDIA QUERIES RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .stat-card p {
+    font-size: 1.4rem;
+  }
+
+  .menu-card {
+    padding: 1.5rem;
+  }
+}
+
+/* ⚡⚡⚡ SECURITY CONTENT NOTIFICATIONS ⚡⚡⚡ */
+.security-notice {
+  background: linear-gradient(90deg, #330000, #660000);
+  color: #ffcccc;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #990000;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.security-notice::before {
+  content: "🔒";
+  margin-right: 8px;
+}
+
+/* SCROLL BAR STYLES 🔒 (Optional) */
+::-webkit-scrollbar {
+  <width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 65, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 65, 0.5);
+}
+
+/* ANIMATION FADES ⚡ */
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnim 1.2s forwards;
+}
+
+@keyframes fadeInAnim {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
